@@ -3,7 +3,7 @@ import { convertUint8ArrayToBase64 } from "@ai-sdk/provider-utils";
 import type {
   ChatPrompt,
   ChatCompletionContentPart,
-} from "./-chat-prompt";
+} from "./chat-prompt";
 
 export function convertToChatMessages(
   prompt: LanguageModelV1Prompt

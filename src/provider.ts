@@ -113,7 +113,7 @@ export function create(
     settings: ChatSettings = {}
   ) =>
     new ChatLanguageModel(modelId, settings, {
-      provider: ".chat",
+      provider: "ai.chat",
       url: ({ path }) => `${baseURL}${path}`,
       headers: getHeaders,
       compatibility,
@@ -126,7 +126,7 @@ export function create(
     settings: CompletionSettings = {}
   ) =>
     new CompletionLanguageModel(modelId, settings, {
-      provider: ".completion",
+      provider: "ai.completion",
       url: ({ path }) => `${baseURL}${path}`,
       headers: getHeaders,
       compatibility,
@@ -144,12 +144,12 @@ export function create(
       );
     }
 
-    if (modelId === "google-studio/gemini-1.5-flash") {
-      return createCompletionModel(
-        modelId,
-        settings as CompletionSettings
-      );
-    }
+    // if (modelId === "google-studio/gemini-1.5-flash") {
+    //   return createCompletionModel(
+    //     modelId,
+    //     settings as CompletionSettings
+    //   );
+    // }
 
     return createChatModel(modelId, settings as ChatSettings);
   };
