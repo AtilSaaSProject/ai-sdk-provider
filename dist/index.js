@@ -1045,7 +1045,7 @@ function create(options = {}) {
     })}`
   }, options.headers);
   const createChatModel = (modelId, settings = {}) => new ChatLanguageModel(modelId, settings, {
-    provider: ".chat",
+    provider: "ai.chat",
     url: ({ path }) => `${baseURL}${path}`,
     headers: getHeaders,
     compatibility,
@@ -1053,7 +1053,7 @@ function create(options = {}) {
     extraBody: options.extraBody
   });
   const createCompletionModel = (modelId, settings = {}) => new CompletionLanguageModel(modelId, settings, {
-    provider: ".completion",
+    provider: "ai.completion",
     url: ({ path }) => `${baseURL}${path}`,
     headers: getHeaders,
     compatibility,
@@ -1064,12 +1064,6 @@ function create(options = {}) {
     if (new.target) {
       throw new Error(
         "The  model function cannot be called with the new keyword."
-      );
-    }
-    if (modelId === "google-studio/gemini-1.5-flash") {
-      return createCompletionModel(
-        modelId,
-        settings
       );
     }
     return createChatModel(modelId, settings);
